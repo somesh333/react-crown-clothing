@@ -1,6 +1,7 @@
 import React from 'react'
 import './CollectionPreview.scss'
-import { SHOP_DATA } from '../shop/ShopData'
+import CollectionItems from '../../collectionItem/CollectionItems'
+
 
 const collectionPreview = ({title, items }) => {
   return (
@@ -9,8 +10,8 @@ const collectionPreview = ({title, items }) => {
         <div className='preview'>
             {items
             .filter((item ,idx) => idx < 4)
-            .map(item => (
-                <div key={item.id}>{item.name}</div>
+            .map(({id , ...otherItemProps}) => (
+                <CollectionItems key={id} {...otherItemProps } />
             ))}
         </div>
          </div>
