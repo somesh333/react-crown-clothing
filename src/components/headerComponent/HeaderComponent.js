@@ -4,7 +4,7 @@ import './HeaderStyles.scss'
 
 const HeaderComponent = ( ) => (
     <div className='header'>
-        <Link className='logo-container' to="/">
+        <Link className='title' to="/">
             {/* <Logo className="logo" /> */}
             UNITE
         </Link>
