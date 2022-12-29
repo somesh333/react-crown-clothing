@@ -1,15 +1,20 @@
-import React from "react";
-import './FormInput.scss'
+import React from 'react';
 
-export const FormInput = ({ handleChange, lable, ...otherProps }) => (
-  <div className="group">
-    <input className="form-input" onChange={handleChange} {...otherProps} />
-    {lable ? (
-      <lable
-        className={`${otherProps.value.length ? "shink" : ""}form-input-lable`}
+import './FormInput.scss';
+
+const FormInput = ({ handleChange, label, ...otherProps }) => (
+  <div className='group'>
+    <input className='form-input' onChange={handleChange} {...otherProps} />
+    {label ? (
+      <label
+        className={`${
+          otherProps.value.length ? 'shrink' : ''
+        } form-input-label`}
       >
-        {lable}
-      </lable>
+        {label}
+      </label>
     ) : null}
   </div>
 );
+
+export default FormInput;
