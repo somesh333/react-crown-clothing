@@ -4,7 +4,7 @@ import { Switch ,Route } from 'react-router-dom';
 import ShopPage from './components/pages/shop/ShopPage';
 import HeaderComponent from './components/headerComponent/HeaderComponent';
 import { SignInAndSignUp } from './components/pages/SignInAndSignUp/SignInAndSignUp';
-import { auth } from './components/firebase/Firebase.utils';
+import { auth, createUserProfileDocument } from './components/firebase/Firebase.utils';
 import React,{Component} from 'react';
 
 
@@ -22,11 +22,14 @@ constructor(){
 unsubscribeFromAuth = null;
 
 componentDidMount() {
-  auth.onAuthStateChanged(user => {
-    this.setState({
-      currentUser:user
-    });
-    console.log(user);
+  // auth.onAuthStateChanged(user => {
+  //   this.setState({
+  //     currentUser:user
+  //   });
+  //   console.log(user);
+  // })
+  this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+    createUserProfileDocument(user); 
   })
 } 
 componentWillUnmount(){
