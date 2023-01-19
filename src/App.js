@@ -1,6 +1,6 @@
 import './App.css';
 import { Homepage } from './components/pages/Homepage';
-import { Switch ,Route } from 'react-router-dom';
+import { Switch ,Route, Redirect } from 'react-router-dom';
 import ShopPage from './components/pages/shop/ShopPage';
 import HeaderComponent from './components/headerComponent/HeaderComponent';
 import { SignInAndSignUp } from './components/pages/SignInAndSignUp/SignInAndSignUp';
@@ -60,7 +60,7 @@ componentWillUnmount(){
          <Switch>
         <Route exact path='/' component={Homepage} />
         <Route exact path='/shop' component={ShopPage} />
-        <Route exact path='/signin' component={SignInAndSignUp} />
+        <Route exact path='/signin' render={() => this.props.currentUser ?  (<Redirect to ="/" />) : ( <SignInAndSignUp/>)} />
          </Switch>
       </div>
     );
