@@ -4,7 +4,7 @@ import './HeaderStyles.scss'
 import { auth } from '../firebase/Firebase.utils';
 import { connect } from 'react-redux';
 import {ReactComponent as ShopppingIcon} from '../../assets/shopping-bag.svg';
-
+import CustomButton from '../CustomButton/CustomButton'
 
 
 const HeaderComponent = ({currentUser } ) => (
@@ -38,7 +38,15 @@ const HeaderComponent = ({currentUser } ) => (
         <span className='item-count'>0</span>
     </div>
         </div>
+     {/* <cartDropdown/> */}
+  
+        <div className='cart-dropdown'>
+    <div className='cart-items' />
+   <CustomButton>Go to checkout</CustomButton>
+
     </div>
+    </div>
+
 )
 
 const mapStateToProps = state => ({
