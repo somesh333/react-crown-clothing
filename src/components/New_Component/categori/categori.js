@@ -26,9 +26,9 @@ const categori = () => {
     <th>Description</th>
   </tr>
   <tr appml-repeat="records">
-    <td style="cursor:pointer" onclick="appml('Form01').run({{CategoryID}})">&#9998;</td>
+    {/* <td style="cursor:pointer" onclick="appml('Form01').run({{CategoryID}})">&#9998;</td>
     <td>{{CategoryName}}</td>
-    <td>{{Description}}</td>
+    <td>{{Description}}</td> */}
   </tr>
 </table>
 </div>
